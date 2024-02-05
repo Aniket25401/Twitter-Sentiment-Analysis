@@ -1,11 +1,7 @@
 gunicorn
 Flask==2.0.1
-render_template
-request
 pickle
 re
 sklearn.feature_extraction.text
 TfidVectorizer
-nltk
-PorterStemmer
-stopwords
+nltk==3.6.3
