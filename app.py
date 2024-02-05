@@ -8,8 +8,8 @@ from nltk.corpus import stopwords
 app = Flask(__name__)
 
 # Load the pre-trained model and vectorizer
-loaded_model = pickle.load(open('E:/twitter/trained_model.pkl', 'rb'))
-loaded_vectorizer = pickle.load(open('E:/twitter/vectorizer.pkl', 'rb'))
+loaded_model = pickle.load(open('trained_model.pkl', 'rb'))
+loaded_vectorizer = pickle.load(open('vectorizer.pkl', 'rb'))
 
 # Define Porter Stemmer
 port_stem = PorterStemmer()
