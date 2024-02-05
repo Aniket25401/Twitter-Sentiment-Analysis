@@ -33,6 +33,6 @@ app.py: Flask web application for sentiment prediction.
 templates/: HTML templates for the web application.
 static/: Static files (e.g., CSS, JS).
 
-##Acknowledgments
+## Acknowledgments
 Dataset: Sentiment140 on Kaggle.
 Flask: Flask Documentation
