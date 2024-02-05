@@ -1,2 +1,11 @@
 gunicorn
-pip install -r requirements.txt
+Flask
+render_template
+request
+pickle
+re
+sklearn.feature_extraction.text
+TfidVectorizer
+nltk
+PorterStemmer
+stopwords
