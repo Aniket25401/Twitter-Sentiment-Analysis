@@ -18,6 +18,7 @@ To use this dataset in your project:
 1. Training the Model (Google Colab)
 The model training code is available in the Twitter Sentiment Analysis.ipynb notebook.
 To use Google Colab for training, open the notebook and follow the instructions.
+
 Note: Ensure you have the Kaggle API key (kaggle.json) for downloading the dataset.
 
 2. Flask Web Application
