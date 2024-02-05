@@ -38,15 +38,13 @@
             cursor: pointer;
         }
 
-        {% if tweet %}
-            .result {
-                margin-top: 20px;
-            }
+        .result {
+            margin-top: 20px;
+        }
 
-            .result p {
-                margin-bottom: 10px;
-            }
-        {% endif %}
+        .result p {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -60,12 +58,10 @@
             <button type="submit" class="btn btn-primary">Predict</button>
         </form>
         
-        {% if tweet %}
-            <div class="result">
-                <p>Your tweet: {{ tweet }}</p>
-                <p>Sentiment: {{ sentiment }}</p>
-            </div>
-        {% endif %}
+        <div class="result">
+            <p>{{ tweet }}</p>
+            <p>{{ sentiment }}</p>
+        </div>
     </div>
 
     <!-- Include Bootstrap JS and Popper.js (for Bootstrap features) -->
@@ -74,4 +70,3 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
-
