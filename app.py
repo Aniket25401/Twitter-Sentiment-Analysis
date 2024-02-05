@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import pickle
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -37,22 +37,27 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    if request.method == 'POST':
-        tweet = request.form['tweet']
+    try:
+        if request.method == 'POST':
+            tweet = request.form['tweet']
 
-        # Preprocess the input tweet
-        processed_tweet = preprocess_tweet(tweet, port_stem)
+            # Preprocess the input tweet
+            processed_tweet = preprocess_tweet(tweet, port_stem)
 
-        # Vectorize the tweet using the pre-trained vectorizer
-        input_data = loaded_vectorizer.transform([processed_tweet])
+            # Vectorize the tweet using the pre-trained vectorizer
+            input_data = loaded_vectorizer.transform([processed_tweet])
 
-        # Make prediction using the loaded model
-        prediction = loaded_model.predict(input_data)
+            # Make prediction using the loaded model
+            prediction = loaded_model.predict(input_data)
 
-        # Determine the sentiment
-        sentiment = 'Positive' if prediction[0] == 1 else 'Negative'
+            # Determine the sentiment
+            sentiment = 'Positive' if prediction[0] == 1 else 'Negative'
 
-        return render_template('result.html', tweet=tweet, sentiment=sentiment)
+            return render_template('result.html', tweet=tweet, sentiment=sentiment)
+
+    except Exception as e:
+        app.logger.error(f"An error occurred: {str(e)}")
+        return jsonify({'error': 'An internal server error occurred'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=int(os.environ.get('PORT', 5000)))
