@@ -22,7 +22,7 @@ loaded_vectorizer = pickle.load(open(vectorizer_path, 'rb'))
 port_stem = PorterStemmer()
 
 def preprocess_tweet(tweet, port_stem):
-    # Perform the same preprocessing steps as in your training code
+    # Perform the preprocessing steps 
     stemmed_content = re.sub('[^a-zA-Z]',' ',tweet)
     stemmed_content = stemmed_content.lower()
     stemmed_content = stemmed_content.split()
