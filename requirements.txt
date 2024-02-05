@@ -1,4 +1,4 @@
 gunicorn
 Flask==2.0.1
-sklearn.feature_extraction.text
+scikit-learn==0.24.2
 nltk==3.6.3
