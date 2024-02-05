@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        {% if tweet %}
+            .result {
+                margin-top: 20px;
+            }
+
+            .result p {
+                margin-bottom: 10px;
+            }
+        {% endif %}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Welcome to Twitter Sentiment Analysis</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="tweet">Enter your tweet:</label>
+                <input type="text" class="form-control" id="tweet" name="tweet" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        
+        {% if tweet %}
+            <div class="result">
+                <p>Your tweet: {{ tweet }}</p>
+                <p>Sentiment: {{ sentiment }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js (for Bootstrap features) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
