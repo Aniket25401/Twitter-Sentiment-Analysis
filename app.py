@@ -4,12 +4,19 @@ import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.stem.porter import PorterStemmer
 from nltk.corpus import stopwords
+import os
 
 app = Flask(__name__)
 
-# Load the pre-trained model and vectorizer
-loaded_model = pickle.load(open('trained_model.pkl', 'rb'))
-loaded_vectorizer = pickle.load(open('vectorizer.pkl', 'rb'))
+# Get the current directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Load the pre-trained model and vectorizer using relative paths
+model_path = os.path.join(current_dir, 'trained_model.pkl')
+vectorizer_path = os.path.join(current_dir, 'vectorizer.pkl')
+
+loaded_model = pickle.load(open(model_path, 'rb'))
+loaded_vectorizer = pickle.load(open(vectorizer_path, 'rb'))
 
 # Define Porter Stemmer
 port_stem = PorterStemmer()
